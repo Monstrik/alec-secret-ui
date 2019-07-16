@@ -22,7 +22,7 @@ var API = (function() {
 					cb(JSON.parse(request.responseText));
 				} else {
 					alert('Something goes wrong. Try again later.');
-					location.href = '/';
+					location.href = '/alecsecret';
 				}
   			}
 		};
