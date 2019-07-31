@@ -1,28 +1,31 @@
 var API = (function() {
 	
 	var that = this;
-	var	basePath = '/api/';
+	var	basePath = 'https://alec.pythonanywhere.com/';
 
-	var xhrPath = basePath + 'message',
-		paramsPath = basePath + 'params';
+	var xhrPath = basePath + 'secret';
+	var paramsPath = basePath + 'params';
 
 	this.send = function(exp, message, pin, cb) {
 		var request = new XMLHttpRequest(),
 			data = JSON.stringify({
-				exp: new Number(exp) * 60,
-				message: new String(message),
-				pin: new String(pin)
+				"msg": new String(message),
+    			"pin": new String(pin),
+    			"exp": new Number(exp) * 60
 			});
+		
 
 		request.open('POST', xhrPath, true);
-
+		request.setRequestHeader('Content-Type', 'application/json');
+		
 		request.onreadystatechange = function() {
+			debugger;
 			if (request.readyState == 4 && typeof cb == 'function') {
 				if (request.status == 201) {
 					cb(JSON.parse(request.responseText));
 				} else {
 					alert('Something goes wrong. Try again later.');
-					location.href = '/alecsecret';
+					// location.href = '/alecsecret';
 				}
   			}
 		};

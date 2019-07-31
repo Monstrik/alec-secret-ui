@@ -459,14 +459,15 @@ function formInit() {
 		var res = resField.parentNode;
 
 		API.send(exp, message, pin, function(data) {
-			var link = location.protocol + '//' + location.host + '/show/' + data.key;
+			console.log('API.send cb:', data);
+			var link = location.protocol + '//' + location.host + '/show/' + data.sid;
 
 			res.classList.add('result_loaded');
 
 			resField.value = link;
 			resField.focus();
 			resField.select();
-			resField.style.height = resField.scrollHeight + 'px'
+			resField.style.height = resField.scrollHeight + 'px';
 		});
 	}
 
