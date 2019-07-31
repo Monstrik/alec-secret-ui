@@ -459,7 +459,7 @@ function formInit() {
 		var res = resField.parentNode;
 
 		API.send(exp, message, pin, function(data) {
-			console.log('API.send cb:', data);
+			// console.log('API.send cb:', data);
 			var link = location.protocol + '//' + location.host + '/show/' + data.sid;
 
 			res.classList.add('result_loaded');

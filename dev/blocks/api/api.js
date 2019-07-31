@@ -17,15 +17,14 @@ var API = (function() {
 
 		request.open('POST', xhrPath, true);
 		request.setRequestHeader('Content-Type', 'application/json');
-		
+
 		request.onreadystatechange = function() {
-			debugger;
 			if (request.readyState == 4 && typeof cb == 'function') {
 				if (request.status == 201) {
 					cb(JSON.parse(request.responseText));
 				} else {
 					alert('Something goes wrong. Try again later.');
-					// location.href = '/alecsecret';
+					location.href = '/';
 				}
   			}
 		};

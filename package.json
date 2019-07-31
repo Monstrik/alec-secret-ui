@@ -28,8 +28,7 @@
   },
   "license": "MIT",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/umputun/secrets.git"
+    "type": "git"
   },
   "scripts": {
     "dev": "SET NODE_ENV=dev& gulp",
